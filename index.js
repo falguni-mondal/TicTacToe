@@ -3,8 +3,12 @@ let count = document.querySelector('.container');
 let winTxt = document.querySelector('.msg h2');
 const win = document.querySelector('.win-msg');
 const winMsg = document.querySelector('.msg');
+let turn = 0;
 for(let i=0; i<box.length;i++){
     box[i].addEventListener('click', ()=>{
+        if(box[i].innerHTML === ''){
+            turn++;
+        }
         if(box[i].innerHTML === ''){
             count.classList.toggle('x');
             if(count.classList.contains('x')){
@@ -37,6 +41,10 @@ for(let i=0; i<box.length;i++){
         }
         else if(box[6].innerHTML!='' && box[6].innerHTML === box[7].innerHTML && box[7].innerHTML === box[8].innerHTML){
             winning(box[6].innerHTML);
+        }
+        else if(turn === 9){
+            winTxt.innerHTML = 'DRAW';
+            win.style.display = "flex";
         }
     });
 }
