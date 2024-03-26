@@ -51,10 +51,11 @@ for(let i=0; i<box.length;i++){
 function winning(player){
     winTxt.innerHTML = `🎉${player} Wins🎊`;
     win.style.display = "flex";
-}
+};
 win.querySelector('.rematch').addEventListener('click', ()=>{
     box.forEach((val)=>{
         val.innerHTML='';
     })
     win.style.display = "none";
-})
+    turn=0;
+});
